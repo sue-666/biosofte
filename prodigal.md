@@ -31,10 +31,8 @@
 $ prodigal -i m78.fasta -d m78.ffn -a m78.faa -o m78.gff -c  -p   
 #-c -p 不写参数代表使用默认值
 
-### 使用seqkit工具统计序列  
-$ seqkit stat test.ffn  
-$ seqkit stat test.faa   
-$ seqkit stat test.gff  
+### 使用seqkit工具同时统计不同格式的序列  
+$ seqkit stat test.ffn test.faa test.gff  
 
 
 
