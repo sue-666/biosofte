@@ -46,6 +46,19 @@ glimmer3 -o50 -g110 -t30 testm78.fasta tagname.icm ref**
 
 阅读结果文件： less ref.predict
 
+# 在线预测   
+如果是少量序列，可以选择在线预测的方法。  
+**原核基因预测：prodigal**
+网站链接：http://prodigal.ornl.gov/  
+**原核基因预测：glimmer3**  
+网站链接：http://ccb.jhu.edu/software/glimmer/index.shtml  
+国家微生物科学数据中心：prodigal  
+https://nmdc.cn/analyze/details?id=600671720b38496ee0c908dc  
+国家微生物科学数据中心：glimmer3   
+https://nmdc.cn/analyze/details?id=600671720b38496ee0c908dd  
+**genemarks：**  
+http://exon.gatech.edu/GeneMark/gm.cgi    
+
 
 # 噬菌体基因预测
 Virsorter2  
