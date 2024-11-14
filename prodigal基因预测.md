@@ -28,11 +28,30 @@
 
     
 ### 运行  
-$ prodigal -i m78.fasta -d m78.ffn -a m78.faa -f gff -o m78.gff -g 11 -c  -p single -s test.stat  
+$ prodigal -i testm78.fasta -d testm78.ffn -a testm78.faa -f gff -o testm78.gff -g 11 -c  -p single -s test.stat  
 #-c -p 不写参数代表使用默认值
 
 ### 使用seqkit工具同时统计不同格式的序列  
 $ seqkit stat test.ffn test.faa test.gff  
+
+# glimmer3基因预测  
+### 安装软件  
+mamba install -y  glimmer=3.02  
+### 运行软件（以下多步骤命令写入--glimmer.sh--sh glimmer.sh）   
+**sed -e '/>/d' testm78.fasta |tr -d '\n' |awk 'BEGIN {print ">wholefile"}{print $0}' >wholefile  
+long-orfs -n -t 1.15 wholefile tagname.longorfs  1>/dev/null 2>/dev/null  
+extract -t wholefile tagname.longorfs > tagname.train  2>/dev/null  
+build-icm  -r tagname.icm < tagname.train 1>/dev/null 2>/dev/null  
+glimmer3 -o50 -g110 -t30 testm78.fasta tagname.icm ref**   
+
+阅读结果文件： less ref.predict
+
+
+# 噬菌体基因预测
+Virsorter2  
+genomad  
+
+
 
 
 
