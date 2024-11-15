@@ -1,0 +1,5 @@
+ conda activate /mnt/2T/colab/localcolabfold/colabfold-conda  
+colabfold_batch test.csv ./output  
+ 
+
+ 
