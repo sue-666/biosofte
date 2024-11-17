@@ -64,6 +64,38 @@ http://exon.gatech.edu/GeneMark/gm.cgi
 Virsorter2  
 genomad  
 
+# 基因注释  
+# eggnog-mapper
+软件安装：  
+**mamba install -c -bioconda -y eggnog-mapper python=2.7**  
+数据库下载  
+新建一个存放地址：mkdir eggnog_database  
+eggnog
+运行软件脚本：download_eggnog_data.py -y --dir eggnog_database  
+提供输入文件.faa  
+运行：emapper.py -i m78.faa --output annotation -m diamond --data_dir eggnog_database/ &  
+**选项参数：**
+-i: 输入文件，最好基因的氨基酸文件(如：prodigal预测生成)  
+-o: 输出结果前缀  
+-m: 使用HMMER策略还是DIAMOND策略，默认使用HMMER，新版本只支持diamond   
+--output_dir：输出结果文件夹  
+--data_dir: 数据库目录  
+--tax_scope: 指定选择的直系同源基因的物种分类范围，默认为自动判断。  
+
+#### 最终会生成两个文件，分别是mg.emapper.annotations，mg.emapper.seed_orthologs
+第一列：查询序列名称；  
+第二列：eggNOG种子序列；  
+第三列：eggNOG种子序列 evalue；  
+第四列：eggNOG种子序列 bit score；  
+第五列：预测基因名称；  
+第六列：GO_terms, 预测的GO，分号分隔；  
+第七列：KEGG_KO: 预测的KO,分号分隔；  
+第八列：BiGG_Reactions: BiGG代谢反应预测，分号分隔；  
+第九列：eggNOG Taxonomic Scope信息；  
+第十列：匹配的OGs;  
+第十一列：best_OG|evalue|score  
+第十二列：COG功能分类；  
+第十三列：eggNOG功能描述；  
 
 
 
