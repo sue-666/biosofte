@@ -31,6 +31,10 @@
 $ prodigal -i testm78.fasta -d testm78.ffn -a testm78.faa -f gff -o testm78.gff -g 11 -c  -p single -s test.stat  
 #-c -p 不写参数代表使用默认值
 
+ 或者：  
+prodigal -i 0018.fasta 0018.gff -d 0018.ffn -a 0018.faa -g 11 1>prodigal.log 2>prodigal.err  
+
+
 ### 使用seqkit工具同时统计不同格式的序列  
 $ seqkit stat test.ffn test.faa test.gff  
 
